@@ -1,12 +1,8 @@
 print("Clara Vecchio Machado da Silva\nRA: 1051392421023 \nDSM - 1°Semestre\n")
 
-#Compras acima de 300,00 fornece 20% de desconto
-#200,00 desconto de 15%
-#acima de 100,00 desconto de 10%
-
-compra1 = float(input("Digite o valor da primeira compra: R$ "))
-compra2 = float(input("Digite o valor da segunda compra: R$ "))
-compra3 = float(input("Digite o valor da terceira compra: R$ "))
+compra1 = float(input("Digite o valor da primeira compra: R$"))
+compra2 = float(input("Digite o valor da segunda compra: R$"))
+compra3 = float(input("Digite o valor da terceira compra: R$"))
 
 def calcular_desconto(valor):
     if valor > 300:
@@ -16,22 +12,19 @@ def calcular_desconto(valor):
     elif valor > 100:
         desconto = 0.10
     else:
-        desconto = 0.0
-    return valor - (valor * desconto), desconto * 100
+        desconto = 0
+    return valor - (valor*desconto)
 
+valor_desconto1 = calcular_desconto(compra1)
+valor_desconto2 = calcular_desconto(compra2)
+valor_desconto3 = calcular_desconto(compra3)
 
-valor_desconto1, desconto1 = calcular_desconto(compra1)
-valor_desconto2, desconto2 = calcular_desconto(compra2)
-valor_desconto3, desconto3 = calcular_desconto(compra3)
+valor_total = valor_desconto1 + valor_desconto2 + valor_desconto3
+valor_sem_desconto = compra1 + compra2 + compra3
 
-print("Compra 1: R$", compra1, "- Desconto de", desconto1,"% - Valor com desconto: R$",valor_desconto1)
-print(f"Compra 2: R$ {compra2:.2f} - Desconto de {desconto2:.0f}% - Valor com desconto: R$ {valor_desconto2:.2f}")
-print(f"Compra 3: R$ {compra3:.2f} - Desconto de {desconto3:.0f}% - Valor com desconto: R$ {valor_desconto3:.2f}")
+print("\nO valor da compra 1 com desconto é R$"+str(valor_desconto1))
+print("O valor da compra 2 com desconto é R$"+str(valor_desconto2))
+print("O valor da compra 3 com desconto é R$"+str(valor_desconto3))
 
-# Calcula o valor total das compras e o valor total com desconto
-valor_total = compra1 + compra2 + compra3
-valor_total_com_desconto = valor_desconto1 + valor_desconto2 + valor_desconto3
-
-# Exibe o valor total e o valor total com desconto
-print(f"\nValor total das compras: R$ {valor_total:.2f}")
-print(f"Valor total com desconto: R$ {valor_total_com_desconto:.2f}")
+print("\nO valor total da compra é R$"+str(valor_sem_desconto))
+print("O valor total da compra com desconto é R$"+str(valor_total))
